@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BSE DevPath — Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Shared header and navigation -->
+    <header class="site-header">
+      <div class="brand">
+        <img id="siteLogo" class="logo" src="assets/logo.svg" alt="BSE DevPath logo">
+      </div>
+
+      <button class="nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <a class="nav-link" href="landing.html">Home</a>
+        <a class="nav-link" href="quiz.html">Quiz</a>
+        <a class="nav-link" href="results.html">Results</a>
+        <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+        <button id="themeToggle" class="dark-toggle" type="button" aria-pressed="false">Dark</button>
+      </nav>
+    </header>
+
+    <main class="contact-page">
+
+      <!-- Author and project information -->
+      <section class="contact-hero" aria-labelledby="contactPageTitle">
+        <div class="contact-copy">
+          <span class="eyebrow">Contact</span>
+          <h1 id="contactPageTitle">Get in Touch</h1>
+
+          <p class="lead">BSE DevPath was developed by Uwineza Ange Claire as part of the Front-End Web Development module.</p>
+
+          <div class="author-details">
+            <div class="detail-row">
+              <span class="detail-label">Author name</span>
+              <span class="detail-value">Uwineza Ange Claire</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Student ID</span>
+              <span class="detail-value">680780449</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Programme</span>
+              <span class="detail-value">BSc (Hons) Software Engineering</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">Module</span>
+              <span class="detail-value">Front-End Web Development</span>
+            </div>
+          </div>
+
+          <div class="project-link-box">
+            <span class="project-label">Public project repository</span>
+            <a class="project-link" href="https://github.com/angeclaire/BSE_-DevPath" target="_blank" rel="noopener noreferrer">github.com/angeclaire/BSE_-DevPath</a>
+          </div>
+        </div>
+
+        <!-- Author profile -->
+        <aside class="contact-aside" aria-label="Author profile">
+          <div class="author-card">
+            <div class="author-avatar">
+              <img class="author-photo" src="assets/my professional picture.webp" alt="Portrait of Uwineza Ange Claire">
+            </div>
+
+            <div>
+              <h2>Uwineza Ange Claire</h2>
+              <p class="muted">BSc (Hons) Software Engineering</p>
+            </div>
+          </div>
+
+          <div class="contact-summary">
+            <h3>Project focus</h3>
+            <p>BSE DevPath helps incoming students reflect on their interests, strengths and career goals before selecting a software engineering specialisation.</p>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Contact form with inline validation -->
+      <section class="contact-section" aria-labelledby="contactFormTitle">
+        <div class="section-heading">
+          <h2 id="contactFormTitle">Send a Message</h2>
+          <p class="muted">Complete every field. Validation feedback will appear directly below each input.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="grid">
+            <div>
+              <label for="contactName">Full Name</label>
+              <input type="text" id="contactName" name="contactName" placeholder="Jane Doe" autocomplete="name" aria-describedby="contactNameError" required>
+              <small class="error-message" id="contactNameError" aria-live="polite"></small>
+            </div>
+
+            <div>
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" name="contactEmail" placeholder="jane@example.com" autocomplete="email" aria-describedby="contactEmailError" required>
+              <small class="error-message" id="contactEmailError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="grid single">
+            <div>
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" name="contactSubject" placeholder="How can we help?" aria-describedby="contactSubjectError" required>
+              <small class="error-message" id="contactSubjectError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="grid single">
+            <div>
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="contactMessage" rows="6" placeholder="Write your message here..." aria-describedby="contactMessageError" required></textarea>
+              <small class="error-message" id="contactMessageError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary" id="sendMessageBtn">Submit Message</button>
+            <span id="contactStatus" class="status-message" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Shared footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <p class="footer-brand">BSE DevPath</p>
+          <p class="footer-text">Empowering students to choose the right software engineering path through guidance, registration and an adaptive quiz.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="landing.html">Home</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="results.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <p class="footer-note">&copy; 2026 BSE DevPath. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Shared theme, navigation and contact-validation logic -->
+  <script src="script.js"></script>
+</body>
+</html>
