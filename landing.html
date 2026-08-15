@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BSE DevPath — Software Engineering Specialisation Advisor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Shared header and navigation -->
+    <header class="site-header">
+      <div class="brand">
+        <img id="siteLogo" class="logo" src="assets/logo.svg" alt="BSE DevPath logo">
+      </div>
+
+      <button class="nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <a class="nav-link" href="landing.html" aria-current="page">Home</a>
+        <a class="nav-link" href="quiz.html">Quiz</a>
+        <a class="nav-link" href="results.html">Results</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <button id="themeToggle" class="dark-toggle" type="button" aria-pressed="false">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- Landing-page introduction -->
+      <section class="hero">
+        <div>
+          <h1>Discover Your Ideal Software Engineering Specialisation</h1>
+          <p>Build a personalised Learning Journey Plan by registering and taking a short interactive quiz that recommends the software engineering specialisation that best matches your interests, strengths and goals.</p>
+          <a href="#registration" class="cta" id="beginBtn">Register Now</a>
+        </div>
+      </section>
+
+      <!-- Selectable specialisation cards -->
+      <section aria-labelledby="specialisationsTitle">
+        <h2 class="section-title" id="specialisationsTitle">Software Engineering Specialisations</h2>
+        <p class="muted">Select the specialisation that currently interests you most. Your final recommendation will be calculated from your quiz answers.</p>
+
+        <div class="cards" id="specials" role="group" aria-label="Select a software engineering specialisation">
+
+          <button class="card" type="button" data-key="lowlevel" aria-pressed="false">
+            <div class="card-row">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor"></rect>
+                <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor"></path>
+              </svg>
+
+              <div>
+                <h3>Low-Level Programming</h3>
+                <p class="muted">Master hardware and core systems. Explore computer architecture, memory management, operating systems, device drivers and embedded microcontrollers.</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card" type="button" data-key="arvr" aria-pressed="false">
+            <div class="card-row">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 9h18v7a3 3 0 0 1-3 3h-2l-2-3h-4l-2 3H6a3 3 0 0 1-3-3V9Z" stroke="currentColor"></path>
+                <circle cx="8" cy="13" r="1.5" stroke="currentColor"></circle>
+                <circle cx="16" cy="13" r="1.5" stroke="currentColor"></circle>
+              </svg>
+
+              <div>
+                <h3>AR/VR Development</h3>
+                <p class="muted">Build immersive 3D experiences. Combine software engineering, visual computing, interactive graphics, spatial interfaces and real-time simulations.</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card" type="button" data-key="fullstack" aria-pressed="false">
+            <div class="card-row">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"></rect>
+                <path d="M3 9h18M7 13l2 2-2 2M12 17h4" stroke="currentColor"></path>
+              </svg>
+
+              <div>
+                <h3>Full-Stack Web Development</h3>
+                <p class="muted">Build scalable web applications. Develop responsive interfaces, backend APIs, databases, authentication systems and deployment skills.</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card" type="button" data-key="ml" aria-pressed="false">
+            <div class="card-row">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="3" stroke="currentColor"></circle>
+                <circle cx="5" cy="6" r="2" stroke="currentColor"></circle>
+                <circle cx="19" cy="6" r="2" stroke="currentColor"></circle>
+                <circle cx="5" cy="18" r="2" stroke="currentColor"></circle>
+                <circle cx="19" cy="18" r="2" stroke="currentColor"></circle>
+                <path d="M7 7.5 10 10M17 7.5 14 10M7 16.5 10 14M17 16.5 14 14" stroke="currentColor"></path>
+              </svg>
+
+              <div>
+                <h3>Machine Learning</h3>
+                <p class="muted">Harness data and artificial intelligence. Explore neural networks, natural-language processing, computer vision and predictive analytics.</p>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <!-- Inline validation replaces an alert popup -->
+        <small class="error-message specialisation-error" id="specialisationError" aria-live="polite"></small>
+      </section>
+
+      <!-- Student registration form -->
+      <section id="registration" aria-labelledby="registrationTitle">
+        <h2 class="section-title" id="registrationTitle">Student Registration</h2>
+        <p class="muted">Enter your information using the required formats. Validation feedback appears immediately below each field.</p>
+
+        <form id="regForm" novalidate autocomplete="off">
+          <div class="grid">
+
+            <div>
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" autocomplete="name" aria-describedby="fullNameError" required>
+              <small class="error-message" id="fullNameError" aria-live="polite"></small>
+            </div>
+
+            <div>
+              <label for="studentId">Student ID</label>
+              <input type="text" id="studentId" name="studentId" placeholder="BSE-2026-0001" autocomplete="off" aria-describedby="studentIdError" required>
+              <small class="error-message" id="studentIdError" aria-live="polite"></small>
+            </div>
+
+            <div>
+              <label for="email">Institutional Email</label>
+              <input type="email" id="email" name="email" placeholder="student.id@bse.ac.mu" autocomplete="email" aria-describedby="emailError" required>
+              <small class="error-message" id="emailError" aria-live="polite"></small>
+            </div>
+
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+230XXXXXXXX" autocomplete="tel" aria-describedby="phoneError" required>
+              <small class="error-message" id="phoneError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <!-- Stores the specialisation selected above -->
+          <input type="hidden" id="specialisation" name="specialisation" value="">
+
+          <div class="actions">
+            <button type="submit" class="primary" id="startQuizBtn">Start Quiz</button>
+            <span class="muted">Your information is saved locally before you are redirected to the quiz.</span>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Shared footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <p class="footer-brand">BSE DevPath</p>
+          <p class="footer-text">Empowering students to choose the right software engineering path through guidance, registration and an adaptive quiz.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="landing.html">Home</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="results.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <p class="footer-note">&copy; 2026 BSE DevPath. All rights reserved.</p>
+    </footer>
+    
+  </div>
+
+  <!-- Clear form fields on page load -->
+  <script>
+    window.addEventListener('load', () => {
+      const regForm = document.getElementById('regForm');
+      if (regForm) {
+        regForm.reset();
+      }
+    });
+  </script>
+
+  <!-- Shared theme, navigation, validation and local-storage logic -->
+  <script src="script.js"></script>
+</body>
+</html>
