@@ -1,0 +1,271 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <script>
+    (function () {
+      const regData = localStorage.getItem('bseRegistration');
+      console.log('Quiz guard: Checking bseRegistration =', regData);
+      if (!regData) {
+        console.error('Quiz guard: No registration found. Blocking access.');
+        document.documentElement.innerHTML = '';
+        window.location.replace('landing.html');
+      }
+    })();
+    
+    // Fallback check after a brief delay
+    setTimeout(function() {
+      if (!localStorage.getItem('bseRegistration')) {
+        console.error('Quiz guard (fallback): Still no registration. Redirecting.');
+        window.location.replace('landing.html');
+      }
+    }, 100);
+  </script>
+
+  <title>BSE DevPath Quiz</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Shared site header -->
+    <header class="site-header">
+      <div class="brand">
+        <img
+          id="siteLogo"
+          class="logo"
+          src="assets/logo.svg"
+          alt="BSE DevPath logo"
+        >
+      </div>
+
+      <!-- Mobile navigation button -->
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="nav"
+        id="mainNav"
+        aria-label="Main navigation"
+      >
+        <a
+          class="nav-link"
+          href="landing.html"
+        >
+          Home
+        </a>
+
+        <a
+          class="nav-link"
+          href="quiz.html"
+          aria-current="page"
+        >
+          Quiz
+        </a>
+
+        <a
+          class="nav-link"
+          href="results.html"
+        >
+          Results
+        </a>
+
+        <a
+          class="nav-link"
+          href="contact.html"
+        >
+          Contact
+        </a>
+
+        <button
+          id="themeToggle"
+          class="dark-toggle"
+          type="button"
+          aria-pressed="false"
+        >
+          Dark
+        </button>
+      </nav>
+    </header>
+
+    <main class="quiz-page">
+
+      <!-- Quiz heading, timer and progress indicator -->
+      <section
+        class="quiz-header"
+        aria-labelledby="quizTitle"
+      >
+        <div>
+          <h1 id="quizTitle">
+            BSE DevPath Quiz
+          </h1>
+
+          <p class="muted">
+            Answer ten questions to discover the software
+            engineering specialisation that best matches your
+            strengths, interests and goals.
+          </p>
+        </div>
+
+        <aside
+          class="quiz-status"
+          aria-label="Quiz status"
+        >
+          <!-- JavaScript updates the countdown every second -->
+          <div
+            class="timer"
+            id="countdown"
+            role="timer"
+            aria-live="polite"
+            aria-label="Quiz time remaining"
+          >
+            05:00
+          </div>
+
+          <!-- Timeout warnings appear here -->
+          <div
+            class="timer-message"
+            id="timerMessage"
+            aria-live="assertive"
+          ></div>
+
+          <!-- JavaScript updates the current question number -->
+          <div
+            class="progress-text"
+            id="progressText"
+          >
+            Question 1 of 10
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-label="Quiz completion"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="10"
+          >
+            <div
+              class="progress-fill"
+              id="progressFill"
+            ></div>
+          </div>
+        </aside>
+      </section>
+
+      <!--
+        quiz.js dynamically inserts the current question,
+        possible answers and interactive media in this element.
+      -->
+      <section
+        id="quizContainer"
+        class="quiz-card"
+        aria-live="polite"
+        aria-labelledby="quizTitle"
+      >
+        <p>Loading the quiz…</p>
+      </section>
+
+      <!-- Quiz navigation controls -->
+      <div
+        class="quiz-controls"
+        aria-label="Quiz navigation controls"
+      >
+        <button
+          id="prevBtn"
+          class="secondary"
+          type="button"
+        >
+          Previous
+        </button>
+
+        <button
+          id="nextBtn"
+          class="secondary"
+          type="button"
+        >
+          Next
+        </button>
+
+        <button
+          id="submitBtn"
+          class="primary hidden"
+          type="button"
+        >
+          Submit Quiz
+        </button>
+      </div>
+
+      <!--
+        Inline quiz messages appear here. For example, this
+        element warns the student when some answers are missing.
+      -->
+      <section
+        id="resultPanel"
+        class="quiz-results hidden"
+        aria-live="assertive"
+      ></section>
+    </main>
+
+    <!-- Shared site footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <p class="footer-brand">
+            BSE DevPath
+          </p>
+
+          <p class="footer-text">
+            Empowering students to choose the right software
+            engineering path through guidance, registration
+            and an adaptive quiz.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="landing.html">Home</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="results.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        &copy; 2026 BSE DevPath. All rights reserved.
+      </p>
+    </footer>
+  </div>
+
+  <!--
+    quiz.js must load first because it manages questions,
+    answers, media, timer and scoring.
+  -->
+  <script src="quiz.js"></script>
+
+  <!--
+    script.js provides shared navigation and theme behavior.
+  -->
+  <script src="script.js"></script>
+</body>
+</html>
