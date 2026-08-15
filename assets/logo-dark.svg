@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="48" viewBox="0 0 260 48" role="img" aria-label="BSE-DevPath logo">
+  <defs>
+    <linearGradient id="lg-dark" x1="0" x2="1">
+      <stop offset="0" stop-color="#7a5af8" />
+      <stop offset="1" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="260" height="48" rx="8" fill="transparent"/>
+  <g transform="translate(10,8)">
+    <circle cx="16" cy="16" r="14" fill="url(#lg-dark)" />
+    <text x="40" y="22" font-family="Inter, Arial, sans-serif" font-size="16" fill="#f8fafc">BSE-DevPath</text>
+  </g>
+</svg>
