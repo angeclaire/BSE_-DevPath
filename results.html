@@ -9,8 +9,8 @@
       const resultData = localStorage.getItem('bseResult');
       console.log('Results guard check: bseResult =', resultData);
       if (!resultData) {
-        console.log('No results data found. Redirecting to landing.html');
-        window.location.replace('landing.html');
+        console.log('No results data found. Redirecting to index.html');
+        window.location.replace('index.html');
       }
     })();
   </script>
@@ -35,7 +35,7 @@
       </button>
 
       <nav class="nav" id="mainNav" aria-label="Main navigation">
-        <a class="nav-link" href="landing.html">Home</a>
+        <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="quiz.html">Quiz</a>
         <a class="nav-link" href="results.html" aria-current="page">Results</a>
         <a class="nav-link" href="contact.html">Contact</a>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="footer-links">
-          <a href="landing.html">Home</a>
+          <a href="index.html">Home</a>
           <a href="quiz.html">Quiz</a>
           <a href="results.html">Results</a>
           <a href="contact.html">Contact</a>

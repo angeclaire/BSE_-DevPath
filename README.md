@@ -29,7 +29,7 @@ BSE DevPath is a front-end web application that helps incoming Software Engineer
 
 ```
 BSE_-DevPath/
-├── landing.html      # Home page: specialisation cards + registration form
+├── index.html      # Home page: specialisation cards + registration form
 ├── quiz.html         # Quiz page: questions, timer, progress
 ├── results.html      # Results page: Canvas chart, recommendations, breakdown
 ├── contact.html       # Contact page: author info + contact form
@@ -55,7 +55,7 @@ No build step or dependencies are required.
    ```bash
    git clone https://github.com/angeclaire/BSE_-DevPath.git
    ```
-2. Open `landing.html` in a browser (or serve the folder with a simple local server, e.g. the VS Code "Live Server" extension, to avoid any `file://` restrictions).
+2. Open `index.html` in a browser (or serve the folder with a simple local server, e.g. the VS Code "Live Server" extension, to avoid any `file://` restrictions).
 3. Register and select a specialisation to begin.
 
 ## Usage Flow
