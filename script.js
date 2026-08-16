@@ -364,7 +364,7 @@ function initialiseResultsPage() {
     finalScore;
 
   if (!registrationComplete) {
-    window.location.replace('landing.html#registration');
+    window.location.replace('index.html#registration');
     return;
   }
 
