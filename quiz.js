@@ -7,7 +7,7 @@
 if (!localStorage.getItem('bseRegistration')) {
   console.error('Quiz blocked: No registration data found');
   document.body.innerHTML = '';
-  window.location.replace('landing.html');
+  window.location.replace('index.html');
   throw new Error('Access denied: Registration required');
 }
 
@@ -733,7 +733,7 @@ function initialiseQuiz() {
     registration.specialisation;
 
   if (!registrationComplete) {
-    window.location.replace('landing.html#registration');
+    window.location.replace('index.html#registration');
     return;
   }
 
@@ -757,7 +757,7 @@ function initialiseQuiz() {
   if (!validName || !validStudentId || !validEmail || !validPhone || !validSpecialisation) {
     localStorage.removeItem('bseRegistration');
     localStorage.removeItem('bseSpecialisation');
-    window.location.replace('landing.html#registration');
+    window.location.replace('index.html#registration');
     return;
   }
 
